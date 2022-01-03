@@ -9,18 +9,18 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "text to output here" > ~/Documents/output.txt
+      - run: echo "text to output here" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
-            - Documents/output.txt
+            - output.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
           at: ~/
-      - run: cat ~Documents/output.txt        
+      - run: cat ~/output.txt        
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
