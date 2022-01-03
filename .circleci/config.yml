@@ -75,4 +75,6 @@ workflows:
           requires:
             - save_hello_world_output
       - cause_error
-      - print_error
+      - print_error:
+          requires:
+            - cause_error
